@@ -7,6 +7,8 @@ github.com/aws/constructs-go/constructs/v10 v10.0.9/go.mod h1:RC6w8bOwxLmPX7Jfo9
 github.com/aws/jsii-runtime-go v1.37.0/go.mod h1:6tZnlstx8bAB3vnLFF9n8bbkI//LDblAek9zFyMXV3E=
 github.com/aws/jsii-runtime-go v1.58.0 h1:mwE1xvm83juvzTomGchA5grM3pSh16svlp8llH7385E=
 github.com/aws/jsii-runtime-go v1.58.0/go.mod h1:OPeobFzUctDjq8EXbRZbIphpzQg3lzMs8KH09xuHyk0=
+github.com/aws/jsii-runtime-go v1.59.0 h1:QEnIpd17oKv/UMFD2bPxLbT3B3S+QlYTmnPHEdKJkic=
+github.com/aws/jsii-runtime-go v1.59.0/go.mod h1:OPeobFzUctDjq8EXbRZbIphpzQg3lzMs8KH09xuHyk0=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=

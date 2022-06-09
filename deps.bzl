@@ -16,8 +16,8 @@ def go_dependencies():
     go_repository(
         name = "com_github_aws_jsii_runtime_go",
         importpath = "github.com/aws/jsii-runtime-go",
-        sum = "h1:mwE1xvm83juvzTomGchA5grM3pSh16svlp8llH7385E=",
-        version = "v1.58.0",
+        sum = "h1:QEnIpd17oKv/UMFD2bPxLbT3B3S+QlYTmnPHEdKJkic=",
+        version = "v1.59.0",
     )
     go_repository(
         name = "com_github_davecgh_go_spew",

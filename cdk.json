@@ -1,5 +1,5 @@
 {
-  "app": "bazelisk run //:cdk-bazel-test",
+  "app": "bazelisk build //:cdk-bazel-test && bazel-bin/cdk-bazel-test_/cdk-bazel-test",
   "watch": {
     "include": [
       "**"

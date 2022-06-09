@@ -3,8 +3,11 @@ package main
 import (
 	"github.com/aws/aws-cdk-go/awscdk/v2"
 	// "github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/constructs-go/constructs/v10"
-	// "github.com/aws/jsii-runtime-go"
+	"github.com/aws/jsii-runtime-go"
+
+	"os"
 )
 
 type CdkBazelTestStackProps struct {
@@ -24,6 +27,20 @@ func NewCdkBazelTestStack(scope constructs.Construct, id string, props *CdkBazel
 	// queue := awssqs.NewQueue(stack, jsii.String("CdkBazelTestQueue"), &awssqs.QueueProps{
 	// 	VisibilityTimeout: awscdk.Duration_Seconds(jsii.Number(300)),
 	// })
+	ami := awsec2.MachineImage_Lookup(&awsec2.LookupMachineImageProps{
+		Name:   jsii.String("whslabs-*"),
+		Owners: jsii.Strings("102933037533"),
+	})
+
+	vpc := awsec2.NewVpc(stack, jsii.String("Vpc"), &awsec2.VpcProps{
+		Cidr: jsii.String("10.0.0.0/16"),
+	})
+
+	awsec2.NewInstance(stack, jsii.String("Instance"), &awsec2.InstanceProps{
+		InstanceType: awsec2.NewInstanceType(jsii.String("t3.large")),
+		MachineImage: ami,
+		Vpc:          vpc,
+	})
 
 	return stack
 }
@@ -47,7 +64,7 @@ func env() *awscdk.Environment {
 	// Account/Region-dependent features and context lookups will not work, but a
 	// single synthesized template can be deployed anywhere.
 	//---------------------------------------------------------------------------
-	return nil
+	// return nil
 
 	// Uncomment if you know exactly what account and region you want to deploy
 	// the stack to. This is the recommendation for production stacks.
@@ -61,8 +78,8 @@ func env() *awscdk.Environment {
 	// implied by the current CLI configuration. This is recommended for dev
 	// stacks.
 	//---------------------------------------------------------------------------
-	// return &awscdk.Environment{
-	//  Account: jsii.String(os.Getenv("CDK_DEFAULT_ACCOUNT")),
-	//  Region:  jsii.String(os.Getenv("CDK_DEFAULT_REGION")),
-	// }
+	return &awscdk.Environment{
+		Account: jsii.String(os.Getenv("CDK_DEFAULT_ACCOUNT")),
+		Region:  jsii.String(os.Getenv("CDK_DEFAULT_REGION")),
+	}
 }
